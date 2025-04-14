@@ -1,91 +1,191 @@
+
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px 20px;
+  background-color: #ac2b0a;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
 
 h1 {
   text-align: center;
-  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 40px;
+  letter-spacing: -0.025em;
 }
+
 
 .expense-form {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
   flex-wrap: wrap;
+  gap: 15px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
 }
+
 
 .expense-form input {
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #334155;
+  background-color: #f9fafb;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+.expense-form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+
 .expense-form button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  color: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .expense-form button:hover {
-  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
+
+.expense-form button:active {
+  transform: translateY(0);
+}
+
 
 .search-bar {
   width: 100%;
-  max-width: 300px;
-  padding: 8px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  max-width: 400px;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #334155;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
+
+.search-bar:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
 
 .expense-table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 }
 
-.expense-table th,
-.expense-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
 
 .expense-table th {
-  background-color: #f5f5f5;
+  padding: 15px;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .expense-table th:hover {
-  background-color: #e0e0e0;
+  background-color: #e2e8f0;
+}
+
+.expense-table td {
+  padding: 15px;
+  font-size: 0.95rem;
+  color: #334155;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+.expense-table tr:hover {
+  background-color: #f9fafb;
 }
 
 .delete-button {
-  padding: 6px 12px;
-  background-color: #dc3545;
-  color: white;
+  padding: 8px 16px;
+  background: linear-gradient(90deg, #ef4444, #f87171);
+  color: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .delete-button:hover {
-  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
-@media (max-width: 600px) {
+.delete-button:active {
+  transform: translateY(0);
+}
+
+
+@media (max-width: 768px) {
   .expense-form {
     flex-direction: column;
   }
-  
+
   .expense-form input,
   .expense-form button {
     width: 100%;
+    min-width: unset;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .expense-table th,
+  .expense-table td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: 20px 15px;
+  }
+
+  .search-bar {
+    max-width: 100%;
+  }
+
+  .expense-table {
+    font-size: 0.85rem;
   }
 }
